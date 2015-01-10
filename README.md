@@ -37,6 +37,14 @@ Build + Serve the app
 
 `sudo grunt serve:dist`
 
+##### Integrating into Ripple
+
+Step 1: Add via the [Chrome Web Store](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en)
+
+Step 2: Run `sudo grunt serve:dist`
+
+Step 3: Click on the Ripple Chrome Icon and select `Enable` and `Apache Cordova/Phonegap (1.0.0)`
+
 ## Cordova: Build Locally
 
 Make sure the android sdk or xcode is installed and paths set first.
@@ -138,3 +146,17 @@ Step 2: Run `npm install <plugin>`
 ###### JSHint error of undefined on defined code
 
 Add code to `.jshintrc` under "globals"
+
+##### Locations of `example` name
+
+`app/scripts/app.js`
+
+`app/scripts/init_app.js`
+
+`app/scripts/controllers/default.js`
+
+`app/config.xml`
+
+`bower.json`
+
+`packages.json`
