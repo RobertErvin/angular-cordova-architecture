@@ -82,7 +82,9 @@ Framework: [Jasmine](https://jasmine.github.io/2.0/introduction.html)
 Commands:
 	
 Run TDD + BDD Tests: `sudo grunt test:unit`
+
 Run TDD Tests: `sudo grunt test:tdd`
+
 Run BDD Tests: `sudo grunt test:bdd`
 
 ##### Integation Testing:
