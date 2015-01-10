@@ -97,6 +97,18 @@ Run TDD Tests: `sudo grunt test:tdd`
 
 Run BDD Tests: `sudo grunt test:bdd`
 
+Run a Single Test: `sudo grunt test:(target):(fileType):(testName)`
+
+Where:
+
+`(target)` is either `tdd` or `bdd`
+
+`(fileType)` is a directory such as `controllers` or `services`
+
+`(testName)` is the name of the test excluding the `_test.js`, such as `default`
+
+Example: `sudo grunt test:bdd:controllers:default` only runs `test/bdd/controllers/default_test.js`
+
 ##### Integation Testing:
 
 Framework: [Protractor](https://angular.github.io/protractor/#/api)
@@ -133,7 +145,7 @@ Step 1: Find on [http://bower.io](http://bower.io/search/)
 
 Step 2: Run `bower install <plugin> --save-dev`
 
-Step 3: Add route of `.js` file to `test/bdd.conf.js`, `test/tdd.conf.js`, and `app/index.html` with the rest of the bower dependencies
+Step 3: Add route of `.js` file to the `loadFiles` array in `grunt.registerTask('test'` in `Gruntfile.js`, and `app/index.html` with the rest of the bower dependencies
 
 Step 4: Add module name to `app/scripts/app.js` 
 

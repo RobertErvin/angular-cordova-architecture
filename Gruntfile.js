@@ -385,14 +385,17 @@ module.exports = function (grunt) {
     },
 
     // Test settings
+
     karma: {
+      options: {
+        singleRun: true,
+        files: []
+      },
       bdd: {
-        configFile: 'test/bdd.conf.js',
-        singleRun: true
+        configFile: 'test/bdd.conf.js'
       },
       tdd: {
-        configFile: 'test/tdd.conf.js',
-        singleRun: true
+        configFile: 'test/tdd.conf.js'
       }
     },
 
@@ -440,38 +443,66 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('test', 'Run tests on the app', function (target) {
+  grunt.registerTask('test', 'Run tests on the app', function (target, fileType, testName) {
     var targetExecution;
-    
-    if (target === 'unit') {
-      targetExecution = [
-        'karma:tdd',
-        'karma:bdd'
-        ];
+    var loadFiles = [
+      '../app/bower_components/angular/angular.js',
+      '../app/bower_components/angular-mocks/angular-mocks.js',
+      '../app/bower_components/angular-resource/angular-resource.js',
+      '../app/bower_components/angular-cookies/angular-cookies.js',
+      '../app/bower_components/angular-animate/angular-animate.js',
+      '../app/bower_components/angular-sanitize/angular-sanitize.js',
+      '../app/bower_components/angular-route/angular-route.js',
+      '../app/bower_components/ionic/release/js/ionic.js',
+      '../app/bower_components/ionic/release/js/ionic-angular.js',
+      '../app/bower_components/angular-ui-router/release/angular-ui-router.js',
+      '../app/scripts/**/*.js'
+    ];
+
+    var test;
+    if (target !== undefined && fileType !== undefined && testName !== undefined) { 
+       test = target + '/' + fileType + '/' + testName + '_test.js';
     }
-    else if (target === 'tdd') {
-      targetExecution = [
-        'karma:tdd'
+
+    if (test === undefined) {
+      switch(target) {
+        case 'tdd': 
+          targetExecution = ['karma:tdd'];
+          loadFiles.push('tdd/**/*_test.js');
+          break;
+        case 'bdd':
+          targetExecution = ['karma:bdd'];
+          loadFiles.push('tdd/**/*_test.js');
+          break;
+        case 'unit':
+          targetExecution = ['karma:bdd', 'karma:tdd'];
+          loadFiles = loadFiles.concat(['tdd/**/*_test.js', 'bdd/**/*_test.js']);
+          break;
+        default:
+          targetExecution = [
+            'karma:bdd', 
+            'karma:tdd',
+            'protractor_webdriver:e2eStart', 
+            'protractor:e2e'
+          ];
+          loadFiles = loadFiles.concat(['tdd/**/*_test.js', 'bdd/**/*_test.js']);
+      }
+
+      if (target !== 'e2e'){
+        grunt.config('karma.options.files', loadFiles);
+      }
+      else {
+        targetExecution = [
+          'protractor_webdriver:e2eStart', 
+          'protractor:e2e'
         ];
-    }
-    else if (target === 'bdd') {
-      targetExecution = [
-        'karma:bdd'
-        ];
-    }
-    else if (target === 'e2e') {
-      targetExecution = [
-        'protractor_webdriver:e2eStart', 
-        'protractor:e2e'
-        ];
+      }
     }
     else {
-      targetExecution = [
-      'karma:tdd',
-      'karma:bdd',
-      'protractor_webdriver:e2eStart',
-      'protractor:e2e'
-      ];
+      var targetName = 'karma:' + target;
+      targetExecution = [targetName];
+      loadFiles.push(test);
+      grunt.config('karma.options.files', loadFiles);
     }
 
     grunt.task.run([

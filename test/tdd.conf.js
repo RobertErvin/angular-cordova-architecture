@@ -6,28 +6,12 @@
 module.exports = function(config) {
   config.set({
     // base path, that will be used to resolve files and exclude
-    basePath: '../',
+    basePath: '',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: [
       'jasmine'
       ],
-
-    // list of files / patterns to load in the browser
-    files: [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-resource/angular-resource.js',
-      'app/bower_components/angular-animate/angular-animate.js',
-      'app/bower_components/angular-cookies/angular-cookies.js',
-      'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/bower_components/ionic/release/js/ionic.js',
-      'app/bower_components/ionic/release/js/ionic-angular.js',
-      'app/bower_components/angular-ui-router/release/angular-ui-router.js',
-      'app/scripts/**/*.js',
-      'test/tdd/**/*_test.js'
-    ],
 
     // list of files / patterns to exclude
     exclude: [],
