@@ -3,6 +3,6 @@ bower_components/
 *.log
 .tmp
 .sass_cache/
-
+*.js~
 build/
 dist/

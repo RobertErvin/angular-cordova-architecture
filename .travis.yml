@@ -7,3 +7,6 @@ before_script:
   - 'sudo gem install compass'
   - 'bower install'
   - 'sudo webdriver-manager update'
+after_script: 
+  - 'sudo grunt build'
+  - 'sudo grunt test'
