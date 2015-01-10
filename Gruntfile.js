@@ -460,6 +460,7 @@ module.exports = function (grunt) {
       targetExecution = [
       'karma:tdd',
       'karma:bdd',
+      'protractor_webdriver:e2eStart',
       'protractor:e2e'
       ];
     }
