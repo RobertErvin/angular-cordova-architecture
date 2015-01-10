@@ -8,5 +8,6 @@ before_script:
   - 'bower install'
   - 'webdriver-manager update'
 after_script: 
+  - 'webdriver-manager start'
   - 'sudo grunt build'
   - 'sudo grunt test'
