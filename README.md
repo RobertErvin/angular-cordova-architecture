@@ -85,7 +85,7 @@ Scan the QR Code to download the app on your device
 
 ##### Unit Testing: 
 
-Code coverage is generated in `coverage` and uses [Istanbul](https://github.com/gotwarlost/istanbul) through [Karma Coverage](https://github.com/karma-runner/karma-coverage). Filenames are incremented by day to track coverage over time. Note it does not push to github. 
+Code coverage is generated in `test/coverage` and uses [Istanbul](https://github.com/gotwarlost/istanbul) through [Karma Coverage](https://github.com/karma-runner/karma-coverage). Note it does not push to github. 
 
 Framework: [Jasmine](https://jasmine.github.io/2.0/introduction.html)
 

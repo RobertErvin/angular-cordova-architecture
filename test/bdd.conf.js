@@ -74,11 +74,8 @@ module.exports = function(config) {
 
     // optionally, configure the reporter
     coverageReporter: {
-      dir: 'test/bdd/coverage',
-      subdir: function() {
-        var d = new Date();
-        return (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getFullYear();
-      }
+      type: 'html',
+      dir: 'test/coverage/bdd'
     }
   });
 };
