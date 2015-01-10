@@ -57,7 +57,7 @@ Build and load on device
 
 `cordova run <platform>`
 
-**Note: **You will need to plug your device in, and if on android enable debugging mode.
+**Note:** You will need to plug your device in, and if on android enable debugging mode.
 
 ## Cordova: Build Remotely
 
@@ -65,7 +65,7 @@ Add Phonegap App Id to `.cordova/config.json`
 
 Run `sudo grunt phonegap:send`
 
-Navigate to https://build.phonegap.com/apps/<Your Phonegap App Id>/builds
+Navigate to build.phonegap.com/apps/(Your Phonegap App Id)/builds
 
 Scan the QR Code to download the app on your device
 
@@ -81,9 +81,9 @@ Framework: [Jasmine](https://jasmine.github.io/2.0/introduction.html)
 
 Commands:
 	
-	- Run TDD + BDD Tests: `sudo grunt test:unit`
-	- Run TDD Tests: `sudo grunt test:tdd`
-	- Run BDD Tests: `sudo grunt test:bdd`
+Run TDD + BDD Tests: `sudo grunt test:unit`
+Run TDD Tests: `sudo grunt test:tdd`
+Run BDD Tests: `sudo grunt test:bdd`
 
 ##### Integation Testing:
 
@@ -91,7 +91,7 @@ Framework: [Protractor](https://angular.github.io/protractor/#/api)
 
 Commands:
 
-	- Run Integration Tests: `sudo grunt test:e2e`
+Run Integration Tests: `sudo grunt test:e2e`
 
 ## Adding Files
 
@@ -103,7 +103,7 @@ Step 2: Add to `app/app.js` if applicable
 
 Step 3: Add to `app/index.html` in the correct location if not a view
 
-Step 4: Add test case files with the same name you used in Step 1 in `test/bdd/` and `test/tdd` in the correct directories if applicable 
+Step 4: Add test case files with the same name + `_spec` you used in Step 1 in `test/bdd/` and `test/tdd` in the correct directories if applicable 
 
 ## Adding Plugins
 
@@ -130,3 +130,9 @@ Step 4: Add module name to `app/scripts/app.js`
 Step 1: Find on [https://www.npmjs.com/](https://www.npmjs.com/)
 
 Step 2: Run `npm install <plugin>`
+
+## FAQ
+
+###### JSHint error of undefined on defined code
+
+Add code to `.jshintrc` under "globals"
