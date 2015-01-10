@@ -71,7 +71,11 @@ Build and load on device
 
 Add Phonegap App Id to `.cordova/config.json`
 
-Run `sudo grunt phonegap:send`
+Log in to Phonegap's Remote Build API by running
+
+`sudo phonegap remote login` and entering your Phonegap credentials
+
+Run `sudo grunt phonegap:send` to build and send it to Phonegap Remote Build
 
 Navigate to build.phonegap.com/apps/(Your Phonegap App Id)/builds
 
