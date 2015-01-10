@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Example</name>
+    
+    <description>
+        Example Description
+    </description>
+    
+    <author email="admin@example.com" href="http://example.com">
+        Example
+    </author>
+    
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <preference name="phonegap-version" value="3.6.3" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="portrait" />
+    <preference name="target-device" value="handset" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-targetSdkVersion" value="18" />
+    
+    <!-- Do not auto hide splash on iOS -->
+    <preference name="AutoHideSplashScreen" value="true" />
+    <!-- Do not auto hide splash on Android -->
+    <preference name="SplashScreenDelay" value="10000"/>
+
+    <!-- Seperated ios status bar and app in view -->
+    <gap:plugin name="org.apache.cordova.statusbar" version="0.1.9"/>
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.5"/>
+
+    <!-- icon - android -->
+    <!-- <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" /> -->
+    <!-- icon - iOS -->
+  <!--   <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
+    <icon gap:platform="ios" height="72" src="res/icon/ios/icon-72.png" width="72" />
+    <icon gap:platform="ios" height="76" src="res/icon/ios/icon-76.png" width="76" />
+    <icon gap:platform="ios" height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
+    <icon gap:platform="ios" height="120" src="res/icon/ios/icon-120.png" width="120" />
+    <icon gap:platform="ios" height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
+    <icon gap:platform="ios" height="152" src="res/icon/ios/icon-76-2x.png" width="152" />
+ -->
+    <!-- splash screen - android -->
+   <!--  <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/screen/android/screen-xhdpi-portrait.png" /> -->
+    <!-- splash screen - iOS -->
+  <!--   <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640"/>
+    <gap:splash gap:platform="ios" height="1334" src="res/screen/ios/Default-667h@2x~iphone.png" width="750"/>
+    <gap:splash gap:platform="ios" height="1242" src="res/screen/ios/Default-736h@3x~iphone.png" width="2208"/> -->
+    
+    <access origin="*" />
+</widget>
