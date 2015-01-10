@@ -147,7 +147,7 @@ Step 2: Run `npm install <plugin>`
 
 Add code to `.jshintrc` under "globals"
 
-##### Locations of `example` name
+###### Locations of `example` name
 
 `app/scripts/app.js`
 
