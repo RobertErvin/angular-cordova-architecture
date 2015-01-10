@@ -8,4 +8,4 @@ before_script:
   - 'bower install'
 after_script:
   - 'sudo grunt build'
-  - 'sudo grunt test'
+  - 'sudo grunt test:unit'

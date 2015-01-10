@@ -56,6 +56,24 @@ module.exports = function(config) {
     // Continuous Integration mode
     // If true, Karma will start and capture all configured browsers, run tests and then exit 
     // with an exit code of 0 or 1 depending on whether all tests passed or any tests failed.
-    singleRun: false
+    singleRun: false,
+
+    // Karma Coverage
+
+    // coverage reporter generates the coverage
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      '../app/scripts/**/*.js': ['coverage']
+    },
+
+    // optionally, configure the reporter
+    coverageReporter: {
+      type : 'html',
+      dir : 'tdd/coverage/'
+    }
   });
 };
