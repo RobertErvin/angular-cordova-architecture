@@ -490,10 +490,4 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
-
-  // Default task(s).
-  grunt.registerTask('default', [
-    'protractor_webdriver:e2eStart', 
-    'protractor:e2e'
-    ]);
 };

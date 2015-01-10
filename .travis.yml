@@ -7,5 +7,5 @@ before_script:
   - 'gem install compass'
   - 'bower install'
 after_script:
-  - 'sudo grunt build'
-  - 'sudo grunt test:unit'
+  - 'grunt build'
+  - 'grunt test:unit'
