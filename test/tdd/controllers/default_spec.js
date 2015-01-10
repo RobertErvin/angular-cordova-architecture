@@ -1,5 +1,6 @@
 'use strict';
-describe("The Default Controller", function() {
+
+describe('The Default Controller', function() {
 
   beforeEach(module('exampleApp'));
 

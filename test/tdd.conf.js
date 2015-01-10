@@ -1,10 +1,12 @@
+'use strict';
+
 // Karma configuration
 // http://karma-runner.github.io/0.10/config/configuration-file.html
 
 module.exports = function(config) {
   config.set({
     // base path, that will be used to resolve files and exclude
-    basePath: '',
+    basePath: '../',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: [
@@ -13,18 +15,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../app/bower_components/angular/angular.js',
-      '../app/bower_components/angular-mocks/angular-mocks.js',
-      '../app/bower_components/angular-resource/angular-resource.js',
-      '../app/bower_components/angular-animate/angular-animate.js',
-      '../app/bower_components/angular-cookies/angular-cookies.js',
-      '../app/bower_components/angular-sanitize/angular-sanitize.js',
-      '../app/bower_components/angular-route/angular-route.js',
-      '../app/bower_components/ionic/release/js/ionic.js',
-      '../app/bower_components/ionic/release/js/ionic-angular.js',
-      '../app/bower_components/angular-ui-router/release/angular-ui-router.js',
-      '../app/scripts/**/*.js',
-      'tdd/**/*_spec.js'
+      'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular-resource/angular-resource.js',
+      'app/bower_components/angular-animate/angular-animate.js',
+      'app/bower_components/angular-cookies/angular-cookies.js',
+      'app/bower_components/angular-sanitize/angular-sanitize.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/ionic/release/js/ionic.js',
+      'app/bower_components/ionic/release/js/ionic-angular.js',
+      'app/bower_components/angular-ui-router/release/angular-ui-router.js',
+      'app/scripts/**/*.js',
+      'test/tdd/**/*_spec.js'
     ],
 
     // list of files / patterns to exclude
@@ -67,15 +69,15 @@ module.exports = function(config) {
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
       // (these files will be instrumented by Istanbul)
-      '../app/scripts/**/*.js': ['coverage']
+      'app/scripts/**/*.js': ['coverage']
     },
 
     // optionally, configure the reporter
     coverageReporter: {
-      dir: 'tdd/coverage',
+      dir: 'test/tdd/coverage',
       subdir: function() {
         var d = new Date();
-        return (d.getMonth() + 1) + "-" + d.getDate() + "-" + d.getFullYear();
+        return (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getFullYear();
       }
     }
   });
