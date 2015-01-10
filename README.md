@@ -115,7 +115,7 @@ Step 2: Add to `app/app.js` if applicable
 
 Step 3: Add to `app/index.html` in the correct location if not a view
 
-Step 4: Add test case files with the same name + `_spec` you used in Step 1 in `test/bdd/` and `test/tdd` in the correct directories if applicable 
+Step 4: Add test case files with the same name + `_test` you used in Step 1 in `test/bdd/` and `test/tdd` in the correct directories if applicable 
 
 ## Adding Plugins
 

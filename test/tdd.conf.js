@@ -26,7 +26,7 @@ module.exports = function(config) {
       'app/bower_components/ionic/release/js/ionic-angular.js',
       'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/scripts/**/*.js',
-      'test/tdd/**/*_spec.js'
+      'test/tdd/**/*_test.js'
     ],
 
     // list of files / patterns to exclude
