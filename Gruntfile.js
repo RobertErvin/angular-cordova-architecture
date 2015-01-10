@@ -23,6 +23,8 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-protractor-runner');
 
+  grunt.loadNpmTasks('grunt-protractor-webdriver');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -385,12 +387,28 @@ module.exports = function (grunt) {
       }
     },
 
-    protractor: {
+    protractor_webdriver: {
       options: {
-        keepAlive: true,
-        configFile: "test/ui.conf.js"
+        keepAlive : true 
       },
-      run: {}
+      e2eStart: {
+        options: {
+          path: './node_modules/.bin/',
+          command: 'webdriver-manager start --standalone'
+        },  
+      },              
+    },
+
+    protractor: {
+      e2e: {
+        // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+        options: {
+          keepAlive: true, // If false, the grunt process stops when the test fails.
+          noColor: false, // If true, protractor will not use colors in its output.
+          configFile: "test/e2e.conf.js", // Target-specific config file
+          args: {} // Target-specific arguments
+        }
+      },
     }
   });
 
@@ -432,16 +450,17 @@ module.exports = function (grunt) {
         'karma:bdd'
         ];
     }
-    else if (target === 'ui') {
+    else if (target === 'e2e') {
       targetExecution = [
-        'protractor:run'
+        'protractor_webdriver:e2eStart', 
+        'protractor:e2e'
         ];
     }
     else {
       targetExecution = [
       'karma:tdd',
       'karma:bdd',
-      'protractor:run'
+      'protractor:e2e'
       ];
     }
 
@@ -470,4 +489,10 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+
+  // Default task(s).
+  grunt.registerTask('default', [
+    'protractor_webdriver:e2eStart', 
+    'protractor:e2e'
+    ]);
 };

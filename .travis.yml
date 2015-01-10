@@ -6,7 +6,6 @@ before_script:
   - 'npm install'
   - 'gem install compass'
   - 'bower install'
-  - 'webdriver-manager update'
 after_script:
   - 'sudo grunt build'
-  - 'sudo grunt test:unit'
+  - 'sudo grunt test'

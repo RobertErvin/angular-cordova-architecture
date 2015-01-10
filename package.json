@@ -50,12 +50,14 @@
     "grunt-ng-annotate": "~0.8.0",
     "grunt-filerev": "~2.1.2",
     "grunt-protractor-runner": "~1.1.4",
+    "grunt-protractor-webdriver": "~0.1.9",
     "protractor": "~1.6.0"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "webdriver-manager update --standalone"
   }
 }
