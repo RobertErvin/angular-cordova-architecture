@@ -149,7 +149,7 @@ Step 1: Find on [http://bower.io](http://bower.io/search/)
 
 Step 2: Run `bower install <plugin> --save-dev`
 
-Step 3: Add route of `.js` file to the `loadFiles` array in `grunt.registerTask('test'` in `Gruntfile.js`, and `app/index.html` with the rest of the bower dependencies
+Step 3: Add route of `.js` file to `app/index.html` with the rest of the bower dependencies
 
 Step 4: Add module name to `app/scripts/app.js` 
 

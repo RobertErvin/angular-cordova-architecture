@@ -387,15 +387,35 @@ module.exports = function (grunt) {
     // Test settings
 
     karma: {
-      options: {
-        singleRun: true,
-        files: []
-      },
       bdd: {
-        configFile: 'test/bdd.conf.js'
+        configFile: 'test/unit.conf.js',
+        coverageReporter: {
+          dir: 'coverage/bdd',
+          subdir: function (browser) {
+            var d = new Date();
+            return d.getMonth() + 1 + '-' + d.getDay() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
+          }
+        }
       },
       tdd: {
-        configFile: 'test/tdd.conf.js'
+        configFile: 'test/unit.conf.js',
+        coverageReporter: {
+          dir: 'coverage/tdd',
+          subdir: function (browser) {
+            var d = new Date();
+            return d.getMonth() + 1 + '-' + d.getDay() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
+          }
+        }
+      },
+      unit: {
+        configFile: 'test/unit.conf.js',
+        coverageReporter: {
+          dir: 'coverage/unit',
+          subdir: function (browser) {
+            var d = new Date();
+            return d.getMonth() + 1 + '-' + d.getDay() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
+          }
+        }
       }
     },
 
@@ -445,20 +465,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', 'Run tests on the app', function (target, fileType, testName) {
     var targetExecution;
-    var loadFiles = [
-      '../app/bower_components/angular/angular.js',
-      '../app/bower_components/angular-mocks/angular-mocks.js',
-      '../app/bower_components/angular-resource/angular-resource.js',
-      '../app/bower_components/angular-cookies/angular-cookies.js',
-      '../app/bower_components/angular-animate/angular-animate.js',
-      '../app/bower_components/angular-sanitize/angular-sanitize.js',
-      '../app/bower_components/angular-route/angular-route.js',
-      '../app/bower_components/ionic/release/js/ionic.js',
-      '../app/bower_components/ionic/release/js/ionic-angular.js',
-      '../app/bower_components/angular-ui-router/release/angular-ui-router.js',
-      '../app/scripts/**/*.js'
-    ];
+    var lib = require('bower-files')();
+    var loadFiles = lib.ext('js').files;
 
+    loadFiles.push('../app/scripts/**/*.js');
+    loadFiles.push('../app/bower_components/angular-mocks/angular-mocks.js');
     var test;
     if (target !== undefined && fileType !== undefined && testName !== undefined) { 
        test = target + '/' + fileType + '/' + testName + '_test.js';
@@ -472,16 +483,15 @@ module.exports = function (grunt) {
           break;
         case 'bdd':
           targetExecution = ['karma:bdd'];
-          loadFiles.push('tdd/**/*_test.js');
+          loadFiles.push('bdd/**/*_test.js');
           break;
         case 'unit':
-          targetExecution = ['karma:bdd', 'karma:tdd'];
+          targetExecution = ['karma:unit'];
           loadFiles = loadFiles.concat(['tdd/**/*_test.js', 'bdd/**/*_test.js']);
           break;
         default:
           targetExecution = [
-            'karma:bdd', 
-            'karma:tdd',
+            'karma:unit',
             'protractor_webdriver:e2eStart', 
             'protractor:e2e'
           ];

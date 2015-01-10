@@ -52,7 +52,8 @@
     "grunt-filerev": "~2.1.2",
     "grunt-protractor-runner": "~1.1.4",
     "grunt-protractor-webdriver": "~0.1.9",
-    "protractor": "~1.6.0"
+    "protractor": "~1.6.0",
+    "bower-files": "~3.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
