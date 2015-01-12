@@ -393,7 +393,7 @@ module.exports = function (grunt) {
           dir: 'coverage/bdd',
           subdir: function (browser) {
             var d = new Date();
-            return d.getMonth() + 1 + '-' + d.getDay() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
+            return d.getMonth() + 1 + '-' + d.getDate() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
           }
         }
       },
@@ -448,7 +448,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'www') {
       return grunt.task.run([
-        'be2eld', 
+        'build', 
         'connect:dist:keepalive',
         'watch'
         ]);
