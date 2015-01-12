@@ -35,7 +35,7 @@ Serve the app
 
 Build + Serve the app
 
-`sudo grunt serve:dist`
+`sudo grunt serve:www`
 
 ##### Integrating into Ripple
 

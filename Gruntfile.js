@@ -27,7 +27,7 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'www'
   };
 
   // Define the configuration for all the tasks
@@ -403,7 +403,7 @@ module.exports = function (grunt) {
           dir: 'coverage/tdd',
           subdir: function (browser) {
             var d = new Date();
-            return d.getMonth() + 1 + '-' + d.getDay() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
+            return d.getMonth() + 1 + '-' + d.getDate() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
           }
         }
       },
@@ -413,7 +413,7 @@ module.exports = function (grunt) {
           dir: 'coverage/unit',
           subdir: function (browser) {
             var d = new Date();
-            return d.getMonth() + 1 + '-' + d.getDay() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
+            return d.getMonth() + 1 + '-' + d.getDate() + '-' + d.getFullYear() + ' ' + browser.toLowerCase().split(/[ /-]/)[0];
           }
         }
       }
@@ -446,10 +446,11 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
-    if (target === 'dist') {
+    if (target === 'www') {
       return grunt.task.run([
-        'build', 
-        'connect:dist:keepalive'
+        'be2eld', 
+        'connect:dist:keepalive',
+        'watch'
         ]);
     }
 
